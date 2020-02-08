@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -23,18 +22,15 @@ class ApiService {
     if (response.statusCode == 200) {
       print(response.body);
 
-      List list=json.decode(response.body);
-      return list ;
-    } /*else {
+      var list = json.decode(response.body);
+      return list["data"] as List<dynamic>;
+    }
+    /*else {
       return null;
     }*/
   }
 
-
-
-
   //If have time then this will be showing
-
 
   static Future<bool> addEmployee(body) async {
     // BODY
