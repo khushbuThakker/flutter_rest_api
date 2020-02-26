@@ -28,7 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
   @override
@@ -39,10 +38,13 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter REST API"),
       ),
       body: FutureBuilder(
+
         future: ApiService.getEmployees(),
         builder: (context, snapshot) {
-          final employees = snapshot.data;
+
           if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+            final employees = snapshot.data;
+
             return ListView.separated(
               separatorBuilder: (context, index) {
                 return Divider(
